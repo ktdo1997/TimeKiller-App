@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" vgap="20.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.orangecoastcollege.cs272.ic13.view.SignUpScene">
+<GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" vgap="20.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.orangecoastcollege.cs272.view.SignUpScene">
    <children>
-      <Label text="User Name" />
-      <TextField fx:id="nameTF" GridPane.columnIndex="1" />
-      <Label fx:id="nameErrorLabel" text="Field required." textFill="RED" visible="false" GridPane.columnIndex="2" />
+      <Label text="User Name/ID" />
+      <TextField fx:id="UserIDTF" GridPane.columnIndex="1" />
+      <Label fx:id="idErrorLabel" text="Field required." textFill="RED" visible="false" GridPane.columnIndex="2" />
       <Label text="Email Address" GridPane.rowIndex="1" />
       <TextField fx:id="emailAddressTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label fx:id="emailErrorLabel" text="Field required." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
@@ -23,7 +23,7 @@
       <Label text="By signing up, you agree to our Terms &amp; Privacy Policy." GridPane.columnSpan="2" GridPane.rowIndex="4" />
 
       <Label fx:id="signUpErrorLabel" text="Sign up failed." textFill="RED" visible="false" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" style="-fx-border-color: Gray;" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" onAction="#loadSignIn" prefHeight="27.0" prefWidth="81.0" style="-fx-border-color: Gray;" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="3" />
    </children>
    <columnConstraints>
       <ColumnConstraints />

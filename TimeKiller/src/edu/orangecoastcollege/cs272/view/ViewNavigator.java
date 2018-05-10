@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class ViewNavigator {
     public static final String SIGN_UP_SCENE = "SignUpScene.fxml";
     public static final String SIGN_IN_SCENE = "SignInScene.fxml";
+    public static final String MAIN_MENU = "MainMenu.fxml";
 
     public static Stage mainStage;
 
