@@ -10,6 +10,10 @@ public class ViewNavigator {
     public static final String SIGN_UP_SCENE = "SignUpScene.fxml";
     public static final String SIGN_IN_SCENE = "SignInScene.fxml";
     public static final String MAIN_MENU = "MainMenu.fxml";
+    public static final String GAME_SCENE = "GameScene.fxml";
+    public static final String ACCOUNT_SCENE = "AccountScene.fxml";
+    public static final String PROFILE_SCENE = "ProfileScene.fxml";
+
 
     public static Stage mainStage;
 

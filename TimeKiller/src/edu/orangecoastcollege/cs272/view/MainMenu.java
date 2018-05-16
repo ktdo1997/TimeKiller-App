@@ -10,16 +10,18 @@ public class MainMenu
     {
         ViewNavigator.loadScene("Sign In", ViewNavigator.SIGN_IN_SCENE);
     }
-    /*public void loadProfile(MouseEvent event)
+	public void loadGameScene(ActionEvent event)
     {
-        //ViewNavigator.loadScene("Sign Up", ViewNavigator.SIGN_UP_SCENE);
+        ViewNavigator.loadScene("Game", ViewNavigator.GAME_SCENE);
     }
-    public void loadAccount(MouseEvent event)
-    {
-        //ViewNavigator.loadScene("Sign Up", ViewNavigator.SIGN_UP_SCENE);
-    }
-    public void loadGame(MouseEvent event)
-    {
-        //ViewNavigator.loadScene("Sign Up", ViewNavigator.SIGN_UP_SCENE);
-    }*/
+	 public void loadAccountScene(ActionEvent event)
+	    {
+	        ViewNavigator.loadScene("My Account", ViewNavigator.ACCOUNT_SCENE);
+	    }
+	 public void loadProfileScene(ActionEvent event)
+     {
+         ViewNavigator.loadScene("My Profile", ViewNavigator.PROFILE_SCENE);
+     }
+
+   
 }
