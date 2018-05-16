@@ -20,12 +20,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Quiz" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="quizBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Quiz" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Dice" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="diceBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Dice" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -33,13 +33,13 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Guessing" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="guessingBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Guessing" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#loadMainMenu" prefHeight="25.0" prefWidth="78.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-      <Label prefHeight="59.0" prefWidth="214.0" text=" Select Games" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="backBT" mnemonicParsing="false" onAction="#loadMainMenu" prefHeight="25.0" prefWidth="78.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Label fx:id="selectGamesLabel" prefHeight="59.0" prefWidth="214.0" text=" Select Games" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font size="32.0" />
          </font>

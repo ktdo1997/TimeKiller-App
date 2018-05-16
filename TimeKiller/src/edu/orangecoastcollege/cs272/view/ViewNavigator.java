@@ -13,6 +13,9 @@ public class ViewNavigator {
     public static final String GAME_SCENE = "GameScene.fxml";
     public static final String ACCOUNT_SCENE = "AccountScene.fxml";
     public static final String PROFILE_SCENE = "ProfileScene.fxml";
+    public static final String EMAIL_SCENE = "EmailScene.fxml";
+    public static final String USERNAME_SCENE = "UsernameScene.fxml";
+    public static final String PASSWORD_SCENE = "PasswordScene.fxml";
 
 
     public static Stage mainStage;

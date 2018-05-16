@@ -20,12 +20,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" onAction="#loadGameScene" prefHeight="50.0" prefWidth="300.0" text="Play Game" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="playGameBT" mnemonicParsing="false" onAction="#loadGameScene" prefHeight="50.0" prefWidth="300.0" text="Play Game" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#loadAccountScene" prefHeight="50.0" prefWidth="300.0" text="Account" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="accountBT" mnemonicParsing="false" onAction="#loadAccountScene" prefHeight="50.0" prefWidth="300.0" text="Account" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -33,13 +33,13 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#loadProfileScene" prefHeight="50.0" prefWidth="300.0" text="Profile" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="profileBT" mnemonicParsing="false" onAction="#loadProfileScene" prefHeight="50.0" prefWidth="300.0" text="Profile" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#loadSignIn" prefHeight="25.0" prefWidth="78.0" text="Log Out" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-      <Label prefHeight="59.0" prefWidth="214.0" text=" Main Menu" textFill="RED" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="logOutBT" mnemonicParsing="false" onAction="#loadSignIn" prefHeight="25.0" prefWidth="78.0" text="Log Out" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Label fx:id="mainMenuLabel" prefHeight="59.0" prefWidth="214.0" text=" Main Menu" textFill="RED" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font size="38.0" />
          </font>

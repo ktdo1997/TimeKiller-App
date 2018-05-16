@@ -21,12 +21,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="User Name" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="userNameBT" mnemonicParsing="false" onAction="#loadUsernameScene" prefHeight="50.0" prefWidth="300.0" text="User Name" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="passwordBT" mnemonicParsing="false" onAction="#loadPasswordScene" prefHeight="50.0" prefWidth="300.0" text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -34,18 +34,18 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Email" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="emailBT" mnemonicParsing="false" onAction="#loadEmailScene" prefHeight="50.0" prefWidth="300.0" text="Email" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" onAction="#loadMainMenu" prefHeight="25.0" prefWidth="78.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-      <Label prefHeight="59.0" prefWidth="214.0" text="   Account" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="backBT" mnemonicParsing="false" onAction="#loadMainMenu" prefHeight="25.0" prefWidth="78.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <Label fx:id="AccountLabel" prefHeight="59.0" prefWidth="214.0" text="   Account" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font size="38.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Delete Account" textFill="#ff0404" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Button fx:id="deleteAccountBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Delete Account" textFill="#ff0404" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>

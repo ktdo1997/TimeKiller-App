@@ -2,13 +2,45 @@ package edu.orangecoastcollege.cs272.view;
 
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Button;
+
 import javafx.event.ActionEvent;
 
-public class AccountScene {
+import javafx.scene.control.Label;
 
-	// Event Listener on Button.onAction
+public class AccountScene {
 	@FXML
-	public void loadMainMenu(ActionEvent event) {
-	    ViewNavigator.loadScene("Main Menu", ViewNavigator.MAIN_MENU);
+	private Button userNameBT;
+	@FXML
+	private Button passwordBT;
+	@FXML
+	private Button emailBT;
+	@FXML
+	private Button backBT;
+	@FXML
+	private Label AccountLabel;
+	@FXML
+	private Button deleteAccountBT;
+
+	// Event Listener on Button[#userNameBT].onAction
+	@FXML
+    public void loadUsernameScene(ActionEvent event) {
+        ViewNavigator.loadScene("User Name", ViewNavigator.USERNAME_SCENE);
+    }
+    // Event Listener on Button.onAction
+    @FXML
+    public void loadPasswordScene(ActionEvent event) {
+        ViewNavigator.loadScene("Password", ViewNavigator.PASSWORD_SCENE);
+                
+    }
+    // Event Listener on Button.onAction
+    @FXML
+    public void loadEmailScene(ActionEvent event) {
+        ViewNavigator.loadScene("Email", ViewNavigator.EMAIL_SCENE);
+    }
+    // Event Listener on Button.onAction
+    @FXML
+    public void loadMainMenu(ActionEvent event) {
+        ViewNavigator.loadScene("Main Menu", ViewNavigator.MAIN_MENU);
 	}
 }

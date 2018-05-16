@@ -2,13 +2,27 @@ package edu.orangecoastcollege.cs272.view;
 
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Button;
+
 import javafx.event.ActionEvent;
 
-public class ProfileScene {
+import javafx.scene.control.Label;
 
-	// Event Listener on Button.onAction
+public class ProfileScene {
+	@FXML
+	private Button quizBT;
+	@FXML
+	private Button diceBT;
+	@FXML
+	private Button guessingBT;
+	@FXML
+	private Button backBT;
+	@FXML
+	private Label userProfileLabel;
+
+	// Event Listener on Button[#backBT].onAction
 	@FXML
 	public void loadMainMenu(ActionEvent event) {
         ViewNavigator.loadScene("Main Menu", ViewNavigator.MAIN_MENU);
-    }
+	}
 }
