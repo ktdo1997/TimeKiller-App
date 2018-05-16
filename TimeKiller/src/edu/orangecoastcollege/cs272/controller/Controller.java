@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import edu.orangecoastcollege.cs272.model.DBModel;
 import edu.orangecoastcollege.cs272.model.User;
+import edu.orangecoastcollege.cs272.view.MathScene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -22,11 +23,24 @@ public class Controller
     private static final String[] USER_FIELD_NAMES = { "_id", "name", "email", "password" };
     private static final String[] USER_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT" };
 
+    private static final String MATH_QUIZ_TABLE_NAME ="math_quiz";
+    private static final String[] MATH_QUIZ_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
+    private static final String[] MATH_QUIZ_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
+    private static final String MATH_QUIZ_DATA_FILE = "math.csv";
+
+    private static final String GUESSING_QUIZ_TABLE_NAME ="guessing_quiz";
+    private static final String[] GUESSING_QUIZ_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
+    private static final String[] GUESSING_QUIZ_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
+    private static final String GUESSING_QUIZ_DATA_FILE = "guessing.csv";
 
     private User mCurrentUser;
 
     private DBModel mUserDB;
+    private DBModel mMathQuizDB;
+    private DBModel mGuessingQuizDB;
+
     private ObservableList<User> mAllUsersList;
+    private ObservableList<MathScene> mAllMathQuizList;
 
 
     public static Controller getInstance()
@@ -139,5 +153,42 @@ public class Controller
         }
 
         return "SUCCESS";
+    }
+    public ObservableList<MathScene> getGamesForCurrentUser()
+    {
+        ObservableList<MathScene> userGamesList = FXCollections.observableArrayList();
+        //TODO: Implement this method
+        // 1) With the user_games table (mUserGamesDB), get the records that match the current user's (mCurrentUser) id
+        // Note: the records returned will only contain the user_id and game_id (both ints)
+        try
+        {
+            ArrayList<ArrayList<String>> resultsList = theOne.mMathQuizDB.getRecord(String.valueOf(theOne.mCurrentUser.getId()));
+            // Loop through the results
+            int gameId;
+            for (ArrayList<String> values : resultsList)
+            {
+                gameId = Integer.parseInt(values.get(1));
+                // Loop through all the games, try to find a match
+                for (MathScene vg : theOne.mAllMathQuizList)
+                {
+                    if(gameId == vg.getId())
+                    {
+                        userGamesList.add(vg);
+                        break;
+                    }
+                }
+            }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
+        // Loop through the all games list (mAllGamesList).  If any game in the list matches the game id, then:
+        // 2) Add the matching game to the user games list
+        // 3) Return the user games list.
+        return userGamesList;
     }
 }
