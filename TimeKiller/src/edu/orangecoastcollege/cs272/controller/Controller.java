@@ -57,9 +57,10 @@ public class Controller
                 for (ArrayList<String> values : resultsList)
                 {
                     int id = Integer.parseInt(values.get(0));
-                    String name = values.get(1);
+                    String userName = values.get(1);
                     String email = values.get(2);
-                    theOne.mAllUsersList.add(new User(id, name, email));
+                    String password = values.get(3);
+                    theOne.mAllUsersList.add(new User(id,userName,email,password));
                 }
             }
             catch (SQLException e)
@@ -70,17 +71,17 @@ public class Controller
         return theOne;
     }
 
-    public String signInUser(String iD, String password)
+    public String signInUser(String userName, String password)
     {
         for (User u : theOne.mAllUsersList)
         {
-            if (u.getEmail().equalsIgnoreCase(iD))
+            if (u.getUserName().equalsIgnoreCase(userName))
             {
                 //retrieve password:
                 try
                 {
-                    ArrayList<ArrayList<String>> userResults = theOne.mUserDB.getRecord(String.valueOf(u.getId()));
-                    String storedPassword = userResults.get(0).get(4);
+                    ArrayList<ArrayList<String>> userResults = theOne.mUserDB.getRecord(String.valueOf(u.getID()));
+                    String storedPassword = userResults.get(0).get(3);
                     // Check the passwords
                     if (password.equals(storedPassword))
                     {
@@ -89,7 +90,6 @@ public class Controller
                     }
                     else
                         break;
-
                 }
                 catch (SQLException e)
                 {
@@ -98,9 +98,9 @@ public class Controller
                 }
             }
         }
-
         return "Incorrect ID and/or password.  Please try again.";
     }
+
     public boolean isValidPassword(String password)
     {
         // Valid password must contain (see regex below):
@@ -112,12 +112,14 @@ public class Controller
         return password.matches(
                 "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\\\|,.<>\\/?]).{8,16}$");
     }
+
     public boolean isValidEmail(String email)
     {
         return email.matches(
                 "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     }
-    public String signUpUser(String name, String email, String password)
+
+    public String signUpUser(String userName, String email, String password)
     {
         // Check email to see if valid
         if (!isValidEmail(email)) return "Email address not valid.  Please try different address.";
@@ -128,13 +130,8 @@ public class Controller
             if (email.equalsIgnoreCase(u.getEmail()))
                 return "Email address already used.  Please sign in or use different address.";
 
-        // Check password to see if valid
-        // if (!isValidPassword(password))
-        // return "Password must be at least 8 characters, including 1 upper
-        // case letter, 1 number and 1 symbol.";
 
-        // Made it through all the checks, create the new user in the database
-        String[] values = { name, email, "user", password };
+        String[] values = {userName, email, password };
         // Insert the new user into the database
         try
         {
@@ -142,7 +139,7 @@ public class Controller
             int id = theOne.mUserDB.createRecord(Arrays.copyOfRange(USER_FIELD_NAMES, 1, USER_FIELD_NAMES.length),
                     values);
             // Save the new user as the current user
-            theOne.mCurrentUser = new User(id, name, email);
+            theOne.mCurrentUser = new User(id,userName, email, password);
             // Add the new user to the observable list
             theOne.mAllUsersList.add(theOne.mCurrentUser);
         }
@@ -153,7 +150,8 @@ public class Controller
         }
 
         return "SUCCESS";
-    }
+
+   }
     public ObservableList<MathScene> getGamesForCurrentUser()
     {
         ObservableList<MathScene> userGamesList = FXCollections.observableArrayList();
@@ -162,6 +160,7 @@ public class Controller
         // Note: the records returned will only contain the user_id and game_id (both ints)
         try
         {
+            //Fix getId
             ArrayList<ArrayList<String>> resultsList = theOne.mMathQuizDB.getRecord(String.valueOf(theOne.mCurrentUser.getId()));
             // Loop through the results
             int gameId;

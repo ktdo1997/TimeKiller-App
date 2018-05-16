@@ -13,20 +13,20 @@
 <GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" vgap="20.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.orangecoastcollege.cs272.view.SignInScene">
    <children>
       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loadGuest" prefHeight="30.0" prefWidth="105.0" text="Play as Guest" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="225.0" text="Sign Up Failed" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      <Label fx:id="signInErrorLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="225.0" text="Sign Up Failed" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
       <PasswordField fx:id="passwordTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Label text="ID" GridPane.rowIndex="2" />
-      <TextField fx:id="emailAddressTF" prefHeight="25.0" prefWidth="283.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label fx:id="emailErrorLabel" prefHeight="17.0" prefWidth="79.0" text="Field required." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="iDTF" prefHeight="25.0" prefWidth="283.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="iDErrorLabel" prefHeight="17.0" prefWidth="79.0" text="Field required." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Label text="Password" GridPane.rowIndex="3" />
       <Label fx:id="passwordErrorLabel" text="Field required." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <HBox prefHeight="50.0" prefWidth="212.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button mnemonicParsing="false" onAction="#signIn" prefHeight="30.0" prefWidth="125.0" text="Login" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <children>
-            <Label onMouseClicked="#loadForgetID" text="   Forget ID/password?" />
-            <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" onMouseClicked="#loadSignUp" prefHeight="17.0" prefWidth="58.0" text="Sign Up" textFill="#062bff" />
+            <Label onMouseClicked="#loadForgetID" text="Forget ID/Password" textFill="BLUE" />
+            <Label onMouseClicked="#loadSignUp" text="Sign Up" textAlignment="CENTER" textFill="BLUE" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#signIn" prefHeight="30.0" prefWidth="125.0" text="Login" GridPane.columnIndex="3" GridPane.rowIndex="2" />
    </children>
    <columnConstraints>
       <ColumnConstraints />
