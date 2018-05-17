@@ -23,7 +23,7 @@
       <Button mnemonicParsing="false" onAction="#signIn" prefHeight="30.0" prefWidth="125.0" text="Login" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <children>
-            <Label onMouseClicked="#loadForgetID" text="Forget ID/Password" textFill="BLUE" />
+            <Label onMouseClicked="#loadForgotAccount" text="Forget ID/Password" textFill="BLUE" />
             <Label onMouseClicked="#loadSignUp" text="Sign Up" textAlignment="CENTER" textFill="BLUE" />
          </children>
       </HBox>
