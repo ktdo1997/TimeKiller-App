@@ -55,7 +55,7 @@ public class SignInScene {
 	// Event Listener on Label.onMouseClicked
 	@FXML
 	public void loadForgotAccount(MouseEvent event) {
-	    //ViewNavigator.loadScene("Forgot Account", ViewNavigator.FORGOT_ACCOUNT_SCENE);
+	    ViewNavigator.loadScene("Forgot Account", ViewNavigator.FORGOT_ACCOUNT_SCENE);
     }
 
 	// Event Listener on Label.onMouseClicked

@@ -10,53 +10,53 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.orangecoastcollege.cs272.view.ForgotAccountScene">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="148.0" minWidth="10.0" prefWidth="132.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="331.0" minWidth="10.0" prefWidth="331.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="121.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="88.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="312.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label alignment="CENTER" prefHeight="53.0" prefWidth="260.0" text="Fogot Account" GridPane.columnIndex="1">
+      <Label prefHeight="38.0" prefWidth="297.0" text="       Find My Account" GridPane.columnIndex="1">
          <font>
-            <Font size="36.0" />
+            <Font size="26.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" prefHeight="27.0" prefWidth="129.0" text="Email Address:" GridPane.rowIndex="1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_CENTER" prefHeight="17.0" prefWidth="86.0" text="ID:" GridPane.rowIndex="3">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="136.0" text="Email Address:" GridPane.rowIndex="1">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" text="  Password:" GridPane.rowIndex="4">
+      <Label prefHeight="17.0" prefWidth="213.0" text="   My ID:" GridPane.rowIndex="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="143.0" text="  My PassWord:" GridPane.rowIndex="4">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="emailTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#giveAccountInfo" prefHeight="25.0" prefWidth="330.0" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" onAction="#loadSignIn" prefHeight="25.0" prefWidth="84.0" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Label fx:id="iDLabel" prefHeight="17.0" prefWidth="182.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Label fx:id="wrongEmailLabel" contentDisplay="CENTER" prefHeight="17.0" prefWidth="317.0" text="                 Incorrect Email, Please try Again !!" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="emailErrorLabel" prefHeight="17.0" prefWidth="110.0" text="   Field Required..." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Label fx:id="iDLabel" prefHeight="17.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="passwordLabel" prefHeight="27.0" prefWidth="271.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Label fx:id="passwordLabel" prefHeight="27.0" prefWidth="242.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="emailErrorlabel" alignment="CENTER" prefHeight="17.0" prefWidth="108.0" text="Field Required.." textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Label fx:id="wrongEmailErrorLabel" prefHeight="17.0" prefWidth="330.0" text="Incorrect Email Address! Please enter another email!" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#giveInfor" prefHeight="25.0" prefWidth="311.0" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" onAction="#loadSignIn" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="5" />
    </children>
 </GridPane>
