@@ -61,6 +61,7 @@ public class Controller
     private static final String RANDOM_QUIZ_DATA_FILE = "Random.csv";
     private User mCurrentUser;
     //end of    RANDOM QUIZ DB
+
     private DBModel mUserDB;
     private DBModel mGameQuizDB;
     private DBModel mMathQuizDB;
