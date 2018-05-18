@@ -92,7 +92,7 @@ public class Controller
                     String password = values.get(3);
                     theOne.mAllUsersList.add(new User(id,userName,email,password));
                 }
-                
+
                 // Math quiz easy
 				theOne.mMathQuizDB = new DBModel(DB_NAME, MATH_QUIZ_EASY_TABLE_NAME, MATH_QUIZ_EASY_FIELD_NAMES, MATH_QUIZ_EASY_FIELD_TYPES);
 				theOne.initializeEasyMathDBFromFile();
@@ -108,7 +108,7 @@ public class Controller
 					String correct = values.get(5);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				
+
 				// Math quiz normal
 				theOne.mMathQuizDB = new DBModel(DB_NAME, MATH_QUIZ_NORMAL_TABLE_NAME, MATH_QUIZ_NORMAL_FIELD_NAMES, MATH_QUIZ_NORMAL_FIELD_TYPES);
 				theOne.initializeNormalMathDBFromFile();
@@ -124,7 +124,7 @@ public class Controller
 					String correct = values.get(5);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				
+
 				// Math quiz hard
 				theOne.mMathQuizDB = new DBModel(DB_NAME, MATH_QUIZ_HARD_TABLE_NAME, MATH_QUIZ_HARD_FIELD_NAMES, MATH_QUIZ_HARD_FIELD_TYPES);
 				theOne.initializeHardMathDBFromFile();
@@ -140,7 +140,7 @@ public class Controller
 					String correct = values.get(5);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				
+
 				// Game quiz easy
 				theOne.mGameQuizDB = new DBModel(DB_NAME, GAME_QUIZ_EASY_TABLE_NAME, GAME_QUIZ_EASY_FIELD_NAMES, GAME_QUIZ_EASY_FIELD_TYPES);
 				theOne.initializeEasyGameDBFromFile();
@@ -156,7 +156,7 @@ public class Controller
 					String correct = values.get(5);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				
+
 				// Game quiz normal
 				theOne.mGameQuizDB = new DBModel(DB_NAME, GAME_QUIZ_NORMAL_TABLE_NAME, GAME_QUIZ_NORMAL_FIELD_NAMES, GAME_QUIZ_NORMAL_FIELD_TYPES);
 				theOne.initializeNormalGameDBFromFile();
@@ -172,7 +172,7 @@ public class Controller
 					String correct = values.get(5);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				
+
 				// Game quiz hard
 				theOne.mGameQuizDB = new DBModel(DB_NAME, GAME_QUIZ_HARD_TABLE_NAME, GAME_QUIZ_HARD_FIELD_NAMES, GAME_QUIZ_HARD_FIELD_TYPES);
 				theOne.initializeHardGameDBFromFile();
@@ -188,7 +188,7 @@ public class Controller
 					String correct = values.get(5);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				
+
 				// Random quiz
 				theOne.mRandomQuizDB = new DBModel(DB_NAME, RANDOM_QUIZ_TABLE_NAME, RANDOM_QUIZ_FIELD_NAMES, RANDOM_QUIZ_FIELD_TYPES);
 				theOne.initializeRandomQuizDBFromFile();
@@ -213,7 +213,7 @@ public class Controller
         }
         return theOne;
     }
-    
+
  // Random quiz DB From File
     private int initializeRandomQuizDBFromFile() throws SQLException{
 		int recordsCreated = 0;
@@ -223,9 +223,9 @@ public class Controller
 
 		try {
 			Scanner fileScanner = new Scanner(new File(RANDOM_QUIZ_DATA_FILE));
-			
+
 			fileScanner.nextLine();
-			
+
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[RANDOM_QUIZ_FIELD_NAMES.length - 1];
@@ -243,7 +243,7 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
+		return recordsCreated;
 	}
 
 	// Game quiz DB From File
@@ -255,9 +255,9 @@ public class Controller
 
 		try {
 			Scanner fileScanner = new Scanner(new File(GAME_QUIZ_HARD_DATA_FILE));
-			
+
 			fileScanner.nextLine();
-			
+
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[GAME_QUIZ_HARD_FIELD_NAMES.length - 1];
@@ -275,7 +275,7 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
+		return recordsCreated;
 	}
 
 	private int initializeNormalGameDBFromFile() throws SQLException{
@@ -286,9 +286,9 @@ public class Controller
 
 		try {
 			Scanner fileScanner = new Scanner(new File(GAME_QUIZ_NORMAL_DATA_FILE));
-			
+
 			fileScanner.nextLine();
-			
+
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[GAME_QUIZ_NORMAL_FIELD_NAMES.length - 1];
@@ -306,7 +306,7 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
+		return recordsCreated;
 	}
 
 	private int initializeEasyGameDBFromFile() throws SQLException{
@@ -317,9 +317,9 @@ public class Controller
 
 		try {
 			Scanner fileScanner = new Scanner(new File(GAME_QUIZ_EASY_DATA_FILE));
-			
+
 			fileScanner.nextLine();
-			
+
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[GAME_QUIZ_EASY_FIELD_NAMES.length - 1];
@@ -337,9 +337,9 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
+		return recordsCreated;
 	}
-	
+
     // Math quiz DB From File
     private int initializeHardMathDBFromFile() throws SQLException{
 		int recordsCreated = 0;
@@ -349,9 +349,9 @@ public class Controller
 
 		try {
 			Scanner fileScanner = new Scanner(new File(MATH_QUIZ_HARD_DATA_FILE));
-			
+
 			fileScanner.nextLine();
-			
+
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[MATH_QUIZ_HARD_FIELD_NAMES.length - 1];
@@ -369,8 +369,8 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
-		
+		return recordsCreated;
+
 	}
 
 	private int initializeNormalMathDBFromFile() throws SQLException{
@@ -403,7 +403,7 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
+		return recordsCreated;
 	}
 
 	private int initializeEasyMathDBFromFile() throws SQLException{
@@ -436,13 +436,13 @@ public class Controller
 		} catch (FileNotFoundException e) {
 			return 0;
 		}
-		return recordsCreated;	
+		return recordsCreated;
 	}
 
 	public ObservableList<Quiz> getAllQuiz() {
 		return theOne.mAllQuizList;
 	}
-	
+
     public String[] getAccountInfo(String email)
     {
         String[] results = {"Invalid Email"};
@@ -551,7 +551,7 @@ public class Controller
                     else
                     {
                         j.setUserName(newUserName);
-                        // Update the database 
+                        // Update the database
                         String key = String.valueOf(j.getID());
                         String[] fields = {"name", "email", "password" };
                         String[] values = {j.getUserName(), j.getEmail(), j.getPassword()};
@@ -580,13 +580,24 @@ public class Controller
                       else
                       {
                           j.setPassword(newPassword);
+                          String key = String.valueOf(j.getPassword());
+                          String[] fields = {"name","email","password"};
+                          String[] values = {j.getUserName(), j.getEmail(), j.getPassword()};
+                          try
+                        {
+                            theOne.mUserDB.updateRecord(key, fields, values);
+                        }
+                        catch (SQLException e)
+                        {
+                            return "FAILURE";
+                        }
                           return "SUCCESS";
                       }
                   }
               }
           }
 		return "FAILURE";
-    	
+
     }
     public String changeEmail(String currentEmail, String newEmail)
     {

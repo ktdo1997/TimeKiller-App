@@ -25,7 +25,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="diceBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Dice" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button fx:id="diceBT" mnemonicParsing="false" onAction="#loadDiceScene" prefHeight="50.0" prefWidth="300.0" text="Dice" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

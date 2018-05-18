@@ -23,8 +23,12 @@ public class GameScene {
 	// Event Listener on Button[#quizBT].onAction
 	@FXML
 	public void loadQuizScene(ActionEvent event) {
-	    ViewNavigator.loadScene("Quiz", ViewNavigator.QUIZ_SCENE);
+	    ViewNavigator.loadScene("Welcome to Quiz Game", ViewNavigator.QUIZ_SCENE);
 	}
+	@FXML
+    public void loadDiceScene(ActionEvent event) {
+        ViewNavigator.loadScene("Welcome to Dice Game", ViewNavigator.DICE_GAME_SCENE);
+    }
 	// Event Listener on Button[#guessingBT].onAction
 	@FXML
 	public void loadGuessingGameScene(ActionEvent event) {
