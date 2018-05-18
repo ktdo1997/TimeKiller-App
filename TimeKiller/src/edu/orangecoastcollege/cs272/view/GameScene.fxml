@@ -20,7 +20,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="quizBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Quiz" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="quizBT" mnemonicParsing="false" onAction="#loadQuizScene" prefHeight="50.0" prefWidth="300.0" text="Quiz" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -33,7 +33,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="guessingBT" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" text="Guessing" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button fx:id="guessingBT" mnemonicParsing="false" onAction="#loadGuessingGameScene" prefHeight="50.0" prefWidth="300.0" text="Guessing" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>

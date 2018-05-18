@@ -20,11 +20,22 @@ public class GameScene {
 	@FXML
 	private Label selectGamesLabel;
 
+	// Event Listener on Button[#quizBT].onAction
+	@FXML
+	public void loadQuizScene(ActionEvent event) {
+	    ViewNavigator.loadScene("Quiz", ViewNavigator.QUIZ_SCENE);
+	}
+	// Event Listener on Button[#guessingBT].onAction
+	@FXML
+	public void loadGuessingGameScene(ActionEvent event) {
+	    ViewNavigator.loadScene("Welcome to Guessing Game", ViewNavigator.GUESSING_GAME_SCENE);
+	}
 	// Event Listener on Button[#backBT].onAction
 	@FXML
 	public void loadMainMenu(ActionEvent event)
     {
         ViewNavigator.loadScene("Main Menu", ViewNavigator.MAIN_MENU);
-    
+
+
 	}
 }

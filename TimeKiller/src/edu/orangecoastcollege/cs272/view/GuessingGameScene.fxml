@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.orangecoastcollege.cs272.view.GuessingGameScene">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="95.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="96.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="562.0" minWidth="10.0" prefWidth="157.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="562.0" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="562.0" minWidth="10.0" prefWidth="154.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="quizQuestionLabel" prefHeight="29.0" prefWidth="421.0" text="                                 Label" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="answerALabel" prefHeight="17.0" prefWidth="131.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="B" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label fx:id="answerBLabel" prefHeight="27.0" prefWidth="155.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="C" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" text="D" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <Label fx:id="answerCLabel" prefHeight="27.0" prefWidth="124.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="answerDLabel" prefHeight="27.0" prefWidth="138.0" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#loadGameScene" prefHeight="25.0" prefWidth="112.0" text="Exit" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+   </children>
+</GridPane>

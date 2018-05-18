@@ -11,7 +11,7 @@ public class ViewNavigator
     public static final String SIGN_UP_SCENE = "SignUpScene.fxml";
     public static final String SIGN_IN_SCENE = "SignInScene.fxml";
     public static final String FORGOT_ACCOUNT_SCENE = "ForgotAccountScene.fxml";
-
+    public static final String GUESSING_GAME_SCENE = "GuessingGameScene.fxml";
     public static final String MAIN_MENU = "MainMenu.fxml";
     public static final String GAME_SCENE = "GameScene.fxml";
     public static final String ACCOUNT_SCENE = "AccountScene.fxml";
@@ -19,8 +19,10 @@ public class ViewNavigator
     public static final String EMAIL_SCENE = "EmailScene.fxml";
     public static final String USERNAME_SCENE = "UsernameScene.fxml";
     public static final String PASSWORD_SCENE = "PasswordScene.fxml";
+    public static final String QUIZ_SCENE = "QuizScene.fxml";
 
     public static Stage mainStage;
+
 
     public static void setStage(Stage stage)
     {
