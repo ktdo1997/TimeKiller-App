@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
 public class UsernameScene {
-    private static Controller controller = Controller.getInstance();
+	private static Controller controller = Controller.getInstance();
 
 	@FXML
 	private TextField newUserNameTF;
@@ -25,6 +25,7 @@ public class UsernameScene {
 	public void loadAccountScene(ActionEvent event) {
 		ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
 	}
+
 	// Event Listener on Button.onAction
 	@FXML
 	public boolean editUserName() {
@@ -32,13 +33,12 @@ public class UsernameScene {
 		String newUserName = newUserNameTF.getText();
 
 		userNameErrorLabel.setVisible(currentUserName.isEmpty());
-		if(userNameErrorLabel.isVisible())
-		    return false;
-		if(controller.changeUserName(currentUserName, newUserName) == "FAILURE")
-		    newNameErrorLabel.setVisible(true);
-		else
-		{
-		    ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
+		if (userNameErrorLabel.isVisible())
+			return false;
+		if (controller.changeUserName(currentUserName, newUserName) == "FAILURE")
+			newNameErrorLabel.setVisible(true);
+		else {
+			ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
 		}
 
 		return false;

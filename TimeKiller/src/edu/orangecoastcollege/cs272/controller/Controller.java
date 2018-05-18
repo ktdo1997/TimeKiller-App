@@ -213,7 +213,46 @@ public class Controller
         }
         return "FAILURE";
     }
-    //public String changePassword(String currentPassword, String newPassword)
-    //public String changeEmail(String currentEmail, String newEmail)
+    public String changePassword(String currentPassword, String newPassword)
+    {
+    	  for(User u : theOne.mAllUsersList)
+          {
+              if (currentPassword.equalsIgnoreCase(u.getPassword()))
+              {
+                  for(User j : theOne.mAllUsersList)
+                  {
+                      if(newPassword.equalsIgnoreCase(j.getPassword()))
+                          return "FAILURE";
+                      else
+                      {
+                          j.setPassword(newPassword);
+                          return "SUCCESS";
+                      }
+                  }
+              }
+          }
+		return "FAILURE";
+    	
+    }
+    public String changeEmail(String currentEmail, String newEmail)
+    {
+  	  for(User u : theOne.mAllUsersList)
+        {
+            if (currentEmail.equalsIgnoreCase(u.getEmail()))
+            {
+                for(User j : theOne.mAllUsersList)
+                {
+                    if(newEmail.equalsIgnoreCase(j.getEmail()))
+                        return "FAILURE";
+                    else
+                    {
+                        j.setEmail(newEmail);
+                        return "SUCCESS";
+                    }
+                }
+            }
+        }
+		return "FAILURE";
 
+    }
 }

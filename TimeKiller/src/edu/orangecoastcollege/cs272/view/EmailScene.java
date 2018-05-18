@@ -2,33 +2,46 @@ package edu.orangecoastcollege.cs272.view;
 
 import javafx.fxml.FXML;
 
-import javafx.scene.control.Button;
-
 import javafx.scene.control.TextField;
-
+import edu.orangecoastcollege.cs272.controller.Controller;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
 
 public class EmailScene {
+	private static Controller controller = Controller.getInstance();
+	
 	@FXML
-	private Button cancelBT;
+	private TextField newEmailTF;
 	@FXML
-	private Label emailAdressLabel;
+	private TextField currentEmailTF;
 	@FXML
-	private Label myEmailLabel;
+	private Label emailErrorLabel;
 	@FXML
-	private Label emailLabel;
-	@FXML
-	private Label changeEmailLabel;
-	@FXML
-	private Button editBT;
-	@FXML
-	private TextField changeemailTF;
+	private Label newEmailErrorLabel;
 
-	// Event Listener on Button[#cancelBT].onAction
-	@FXML
-	public void loadAccountScene(ActionEvent event) {
-	    ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
+	// Event Listener on Button.onAction
+		@FXML
+		public void loadAccountScene(ActionEvent event) {
+			ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
+		}
+
+		// Event Listener on Button.onAction
+		@FXML
+		public boolean editEmail() {
+			String currentEmail = currentEmailTF.getText();
+			String newEmail = newEmailTF.getText();
+
+			emailErrorLabel.setVisible(currentEmail.isEmpty());
+			if (emailErrorLabel.isVisible())
+				return false;
+			if (controller.changeUserName(currentEmail, newEmail) == "FAILURE")
+				newEmailErrorLabel.setVisible(true);
+			else {
+				ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
+			}
+
+			return false;
+		}
 	}
-}
+
