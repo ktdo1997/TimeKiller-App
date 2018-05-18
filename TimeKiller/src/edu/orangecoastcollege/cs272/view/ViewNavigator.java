@@ -20,6 +20,9 @@ public class ViewNavigator
     public static final String USERNAME_SCENE = "UsernameScene.fxml";
     public static final String PASSWORD_SCENE = "PasswordScene.fxml";
     public static final String QUIZ_SCENE = "QuizScene.fxml";
+    public static final String USER_QUIZ_SCORE_SCENE = "UserQuizScoreScene.fxml";
+    public static final String USER_DICE_SCORE_SCENE = "UserDiceScoreScene.fxml";
+    public static final String USER_GUESSING_SCORE_SCENE = "UserGuessingScoreScene.fxml";
 
     public static Stage mainStage;
 
