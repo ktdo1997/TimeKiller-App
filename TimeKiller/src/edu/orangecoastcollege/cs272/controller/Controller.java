@@ -551,6 +551,15 @@ public class Controller
                     else
                     {
                         j.setUserName(newUserName);
+                        // Update the database 
+                        String key = String.valueOf(j.getID());
+                        String[] fields = {"name", "email", "password" };
+                        String[] values = {j.getUserName(), j.getEmail(), j.getPassword()};
+                        try {
+							theOne.mUserDB.updateRecord(key, fields, values);
+						} catch (SQLException e) {
+							return "FAILURE";
+						}
                         return "SUCCESS";
                     }
                 }
