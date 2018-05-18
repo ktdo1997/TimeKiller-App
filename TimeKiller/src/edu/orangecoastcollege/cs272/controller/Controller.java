@@ -12,7 +12,7 @@ import edu.orangecoastcollege.cs272.model.User;
 import edu.orangecoastcollege.cs272.view.MathScene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-// HIHI
+
 public class Controller
 {
     private static Controller theOne;
@@ -96,6 +96,21 @@ public class Controller
             }
         }
         return theOne;
+    }
+    public String[] getAccountInfo(String email)
+    {
+        String[] results = {"Invalid Email"};
+        for( User u : theOne.mAllUsersList)
+        {
+            if(u.getEmail().equalsIgnoreCase(email))
+            {
+                results = new String[2];
+                results[0] = u.getUserName();
+                results[1] = u.getPassword();
+            break;
+            }
+        }
+        return results;
     }
 
     public String signInUser(String userName, String password)
