@@ -22,7 +22,7 @@ public class AccountScene {
 	@FXML
 	private Button deleteAccountBT;
 
-	// Event Listener on Button[#userNameBT].onAction
+	// Event Listener on Button.onAction
 	@FXML
     public void loadUsernameScene(ActionEvent event) {
         ViewNavigator.loadScene("User Name", ViewNavigator.USERNAME_SCENE);
@@ -31,7 +31,7 @@ public class AccountScene {
     @FXML
     public void loadPasswordScene(ActionEvent event) {
         ViewNavigator.loadScene("Password", ViewNavigator.PASSWORD_SCENE);
-                
+
     }
     // Event Listener on Button.onAction
     @FXML

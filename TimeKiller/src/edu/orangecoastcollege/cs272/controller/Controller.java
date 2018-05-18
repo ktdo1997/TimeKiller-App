@@ -194,5 +194,26 @@ public class Controller
 
         return "SUCCESS";
    }
+    public String changeUserName(String currentUserName, String newUserName)   {
+        for(User u : theOne.mAllUsersList)
+        {
+            if (currentUserName.equalsIgnoreCase(u.getUserName()))
+            {
+                for(User j : theOne.mAllUsersList)
+                {
+                    if(newUserName.equalsIgnoreCase(j.getUserName()))
+                        return "FAILURE";
+                    else
+                    {
+                        j.setUserName(newUserName);
+                        return "SUCCESS";
+                    }
+                }
+            }
+        }
+        return "FAILURE";
+    }
+    //public String changePassword(String currentPassword, String newPassword)
+    //public String changeEmail(String currentEmail, String newEmail)
 
 }
