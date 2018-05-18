@@ -147,4 +147,8 @@ public class DBModel
         Connection connection = DriverManager.getConnection("jdbc:sqlite:" + mDBName);
         return connection;
     }
+
+	public int getRecordCount() throws SQLException{
+		return getAllRecords().size();
+	}
 }

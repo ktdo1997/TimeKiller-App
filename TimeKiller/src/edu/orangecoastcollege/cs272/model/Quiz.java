@@ -3,20 +3,30 @@ package edu.orangecoastcollege.cs272.model;
 public class Quiz
 {
     private int mID;
+    private String mQuestion;
     private String mChoiceA;
     private String mChoiceB;
     private String mChoiceC;
     private String mChoiceD;
     private String mCorrect;
-    public Quiz(int iD, String choiceA, String choiceB, String choiceC, String choiceD, String correct)
+    public Quiz(int iD, String question, String choiceA, String choiceB, String choiceC, String choiceD, String correct)
     {
         super();
         mID = iD;
+        mQuestion = question;
         mChoiceA = choiceA;
         mChoiceB = choiceB;
         mChoiceC = choiceC;
         mChoiceD = choiceD;
         mCorrect = correct;
+    }
+    public void setQuestion(String question)
+    {
+    	mQuestion = question;
+    }
+    public String getQuestion()
+    {
+    	return mQuestion;
     }
     public int getID()
     {

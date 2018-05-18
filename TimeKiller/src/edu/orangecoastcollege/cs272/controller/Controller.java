@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import edu.orangecoastcollege.cs272.model.DBModel;
+import edu.orangecoastcollege.cs272.model.Quiz;
 import edu.orangecoastcollege.cs272.model.User;
-import edu.orangecoastcollege.cs272.view.MathScene;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -33,7 +33,7 @@ public class Controller
     private static final String[] MATH_QUIZ_NORMAL_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
     private static final String MATH_QUIZ_NORMAL_DATA_FILE = "MathNormal.csv";
 
-    private static final String MATH_QUIZ_HARD_TABLE_NAME ="math_easy_quiz";
+    private static final String MATH_QUIZ_HARD_TABLE_NAME ="math_hard_quiz";
     private static final String[] MATH_QUIZ_HARD_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] MATH_QUIZ_HARD_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
     private static final String MATH_QUIZ_HARD_DATA_FILE = "MathHard.csv";
@@ -68,8 +68,10 @@ public class Controller
     private DBModel mRandomQuizDB;
 
     private ObservableList<User> mAllUsersList;
+    private ObservableList<Quiz> mAllQuizList;
 
-
+	private Controller() {
+	}
 
     public static Controller getInstance()
     {
@@ -90,6 +92,119 @@ public class Controller
                     String password = values.get(3);
                     theOne.mAllUsersList.add(new User(id,userName,email,password));
                 }
+                
+                // Math quiz easy
+				theOne.mMathQuizDB = new DBModel(DB_NAME, MATH_QUIZ_EASY_TABLE_NAME, MATH_QUIZ_EASY_FIELD_NAMES, MATH_QUIZ_EASY_FIELD_TYPES);
+				theOne.initializeEasyMathDBFromFile();
+				resultsList = theOne.mMathQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				
+				// Math quiz normal
+				theOne.mMathQuizDB = new DBModel(DB_NAME, MATH_QUIZ_NORMAL_TABLE_NAME, MATH_QUIZ_NORMAL_FIELD_NAMES, MATH_QUIZ_NORMAL_FIELD_TYPES);
+				theOne.initializeNormalMathDBFromFile();
+				resultsList = theOne.mMathQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				
+				// Math quiz hard
+				theOne.mMathQuizDB = new DBModel(DB_NAME, MATH_QUIZ_HARD_TABLE_NAME, MATH_QUIZ_HARD_FIELD_NAMES, MATH_QUIZ_HARD_FIELD_TYPES);
+				theOne.initializeHardMathDBFromFile();
+				resultsList = theOne.mMathQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				
+				// Game quiz easy
+				theOne.mGameQuizDB = new DBModel(DB_NAME, GAME_QUIZ_EASY_TABLE_NAME, GAME_QUIZ_EASY_FIELD_NAMES, GAME_QUIZ_EASY_FIELD_TYPES);
+				theOne.initializeEasyGameDBFromFile();
+				resultsList = theOne.mGameQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				
+				// Game quiz normal
+				theOne.mGameQuizDB = new DBModel(DB_NAME, GAME_QUIZ_NORMAL_TABLE_NAME, GAME_QUIZ_NORMAL_FIELD_NAMES, GAME_QUIZ_NORMAL_FIELD_TYPES);
+				theOne.initializeNormalGameDBFromFile();
+				resultsList = theOne.mGameQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				
+				// Game quiz hard
+				theOne.mGameQuizDB = new DBModel(DB_NAME, GAME_QUIZ_HARD_TABLE_NAME, GAME_QUIZ_HARD_FIELD_NAMES, GAME_QUIZ_HARD_FIELD_TYPES);
+				theOne.initializeHardGameDBFromFile();
+				resultsList = theOne.mGameQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				
+				// Random quiz
+				theOne.mRandomQuizDB = new DBModel(DB_NAME, RANDOM_QUIZ_TABLE_NAME, RANDOM_QUIZ_FIELD_NAMES, RANDOM_QUIZ_FIELD_TYPES);
+				theOne.initializeRandomQuizDBFromFile();
+				resultsList = theOne.mRandomQuizDB.getAllRecords();
+				for (ArrayList<String> values : resultsList)
+				{
+					int id = Integer.parseInt(values.get(0));
+					String question = values.get(0);
+					String choiceA = values.get(1);
+					String choiceB = values.get(2);
+					String choiceC = values.get(3);
+					String choiceD = values.get(4);
+					String correct = values.get(5);
+					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+				}
+				theOne.mUserDB= new DBModel(DB_NAME, USER_TABLE_NAME, USER_FIELD_NAMES, USER_FIELD_TYPES);
             }
             catch (SQLException e)
             {
@@ -98,6 +213,236 @@ public class Controller
         }
         return theOne;
     }
+    
+ // Random quiz DB From File
+    private int initializeRandomQuizDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+			Scanner fileScanner = new Scanner(new File(RANDOM_QUIZ_DATA_FILE));
+			
+			fileScanner.nextLine();
+			
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+				String[] values = new String[RANDOM_QUIZ_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mRandomQuizDB.createRecord(Arrays.copyOfRange(RANDOM_QUIZ_FIELD_NAMES, 1, RANDOM_QUIZ_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+	}
+
+	// Game quiz DB From File
+	private int initializeHardGameDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+			Scanner fileScanner = new Scanner(new File(GAME_QUIZ_HARD_DATA_FILE));
+			
+			fileScanner.nextLine();
+			
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+				String[] values = new String[GAME_QUIZ_HARD_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mGameQuizDB.createRecord(Arrays.copyOfRange(GAME_QUIZ_HARD_FIELD_NAMES, 1, GAME_QUIZ_HARD_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+	}
+
+	private int initializeNormalGameDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+			Scanner fileScanner = new Scanner(new File(GAME_QUIZ_NORMAL_DATA_FILE));
+			
+			fileScanner.nextLine();
+			
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+				String[] values = new String[GAME_QUIZ_NORMAL_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mGameQuizDB.createRecord(Arrays.copyOfRange(GAME_QUIZ_NORMAL_FIELD_NAMES, 1, GAME_QUIZ_NORMAL_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+	}
+
+	private int initializeEasyGameDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+			Scanner fileScanner = new Scanner(new File(GAME_QUIZ_EASY_DATA_FILE));
+			
+			fileScanner.nextLine();
+			
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+				String[] values = new String[GAME_QUIZ_EASY_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mGameQuizDB.createRecord(Arrays.copyOfRange(GAME_QUIZ_EASY_FIELD_NAMES, 1, GAME_QUIZ_EASY_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+	}
+	
+    // Math quiz DB From File
+    private int initializeHardMathDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+			Scanner fileScanner = new Scanner(new File(MATH_QUIZ_HARD_DATA_FILE));
+			
+			fileScanner.nextLine();
+			
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+				String[] values = new String[MATH_QUIZ_HARD_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mMathQuizDB.createRecord(Arrays.copyOfRange(MATH_QUIZ_HARD_FIELD_NAMES, 1, MATH_QUIZ_HARD_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+		
+	}
+
+	private int initializeNormalMathDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+
+			Scanner fileScanner = new Scanner(new File(MATH_QUIZ_NORMAL_DATA_FILE));
+
+			fileScanner.nextLine();
+
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+
+				String[] values = new String[MATH_QUIZ_NORMAL_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mMathQuizDB.createRecord(Arrays.copyOfRange(MATH_QUIZ_NORMAL_FIELD_NAMES, 1, MATH_QUIZ_NORMAL_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+	}
+
+	private int initializeEasyMathDBFromFile() throws SQLException{
+		int recordsCreated = 0;
+
+		if (theOne.mUserDB.getRecordCount() > 0)
+			return 0;
+
+		try {
+
+			Scanner fileScanner = new Scanner(new File(MATH_QUIZ_EASY_DATA_FILE));
+
+			fileScanner.nextLine();
+
+			while (fileScanner.hasNextLine()) {
+				String[] data = fileScanner.nextLine().split(",");
+
+				String[] values = new String[MATH_QUIZ_EASY_FIELD_NAMES.length - 1];
+				values[0] = data[1].replaceAll("'", "''");
+				values[1] = data[2];
+				values[2] = data[3];
+				values[3] = data[4];
+				values[4] = data[5];
+				values[5] = data[6];
+				theOne.mMathQuizDB.createRecord(Arrays.copyOfRange(MATH_QUIZ_EASY_FIELD_NAMES, 1, MATH_QUIZ_EASY_FIELD_NAMES.length), values);
+				recordsCreated++;
+			}
+
+			fileScanner.close();
+		} catch (FileNotFoundException e) {
+			return 0;
+		}
+		return recordsCreated;	
+	}
+
+	public ObservableList<Quiz> getAllQuiz() {
+		return theOne.mAllQuizList;
+	}
+	
     public String[] getAccountInfo(String email)
     {
         String[] results = {"Invalid Email"};
@@ -255,4 +600,5 @@ public class Controller
 		return "FAILURE";
 
     }
+
 }

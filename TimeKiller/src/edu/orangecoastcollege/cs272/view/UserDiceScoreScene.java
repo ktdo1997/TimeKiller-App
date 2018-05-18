@@ -19,4 +19,6 @@ public class UserDiceScoreScene {
 	public void loadProfileScene(ActionEvent event) {
 	    ViewNavigator.loadScene("Profile", ViewNavigator.PROFILE_SCENE);
 	}
+	
+	// getCrrentUserName
 }
