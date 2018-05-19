@@ -23,6 +23,9 @@ public class ViewNavigator
     public static final String USER_QUIZ_SCORE_SCENE = "UserQuizScoreScene.fxml";
     public static final String USER_DICE_SCORE_SCENE = "UserDiceScoreScene.fxml";
     public static final String USER_GUESSING_SCORE_SCENE = "UserGuessingScoreScene.fxml";
+    public static final String MATH_SCENE = "MathScene.fxml";
+    public static final String GAME_QUIZ_SCENE = "GameQuizScene.fxml";
+    
     //game scene
     public static final String DICE_GAME_SCENE = "DiceGameScene.fxml";
 
