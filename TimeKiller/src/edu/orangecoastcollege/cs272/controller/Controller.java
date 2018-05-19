@@ -18,7 +18,7 @@ public class Controller
 {
     private static Controller theOne;
 
-    private static final String DB_NAME = "User_Info";
+    private static final String DB_NAME = "User_Info.db";
 
     private static final String USER_TABLE_NAME = "user";
     private static final String[] USER_FIELD_NAMES = { "_id", "name", "email", "password" };
@@ -60,9 +60,9 @@ public class Controller
     private static final String[] RANDOM_QUIZ_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] RANDOM_QUIZ_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
     private static final String RANDOM_QUIZ_DATA_FILE = "Random.csv";
-    private User mCurrentUser;
     //end of    RANDOM QUIZ DB
 
+    private User mCurrentUser;
     private DBModel mUserDB;
     private DBModel mGameQuizDB;
     private DBModel mMathQuizDB;
@@ -80,6 +80,7 @@ public class Controller
         {
             theOne = new Controller();
             theOne.mAllUsersList = FXCollections.observableArrayList();
+            theOne.mAllQuizList = FXCollections.observableArrayList();
 
             try
             {
@@ -641,4 +642,8 @@ public class Controller
             return 1;
         return 0;
     }
+	public User getCurrentUser()
+	{
+		return mCurrentUser;
+	}
 }

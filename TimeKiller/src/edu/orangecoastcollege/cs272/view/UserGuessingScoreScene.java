@@ -1,21 +1,30 @@
 package edu.orangecoastcollege.cs272.view;
 
 import javafx.fxml.FXML;
-
-import javafx.event.ActionEvent;
-
+import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+import edu.orangecoastcollege.cs272.controller.Controller;
 import javafx.scene.control.Label;
 
-public class UserGuessingScoreScene {
+public class UserGuessingScoreScene implements Initializable{
+	private static Controller controller = Controller.getInstance();
 	@FXML
-	private Label UserGuessingScoreLabel;
+	private Label currentUserNameLabel;
 	@FXML
 	private Label GuessingScoreLabel;
 
 	// Event Listener on Button.onAction
 	@FXML
-	public void loadProfileScene(ActionEvent event) {
+	public void backToAllGames()
+	{
 	    ViewNavigator.loadScene("Profile", ViewNavigator.PROFILE_SCENE);
 	}
-	// getCrrentUserName
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		currentUserNameLabel.setText(controller.getCurrentUser().getUserName());
+		
+	}
 }
