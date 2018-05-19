@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 import edu.orangecoastcollege.cs272.model.DBModel;
@@ -47,7 +48,7 @@ public class Controller
     private static final String GAME_QUIZ_NORMAL_TABLE_NAME ="game_quiz_normal";
     private static final String[] GAME_QUIZ_NORMAL_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] GAME_QUIZ_NORMAL_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String GAME_QUIZ_NORMAL_DATA_FILE = "GameQuiznORMAL.csv";
+    private static final String GAME_QUIZ_NORMAL_DATA_FILE = "GameQuizNormal.csv";
 
     private static final String GAME_QUIZ_HARD_TABLE_NAME ="game_quiz_hard";
     private static final String[] GAME_QUIZ_HARD_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
@@ -100,12 +101,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
@@ -116,12 +117,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
@@ -132,12 +133,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
@@ -148,12 +149,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
@@ -164,12 +165,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
@@ -180,12 +181,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
@@ -196,12 +197,12 @@ public class Controller
 				for (ArrayList<String> values : resultsList)
 				{
 					int id = Integer.parseInt(values.get(0));
-					String question = values.get(0);
-					String choiceA = values.get(1);
-					String choiceB = values.get(2);
-					String choiceC = values.get(3);
-					String choiceD = values.get(4);
-					String correct = values.get(5);
+					String question = values.get(1);
+					String choiceA = values.get(2);
+					String choiceB = values.get(3);
+					String choiceC = values.get(4);
+					String choiceD = values.get(5);
+					String correct = values.get(6);
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 				theOne.mUserDB= new DBModel(DB_NAME, USER_TABLE_NAME, USER_FIELD_NAMES, USER_FIELD_TYPES);
@@ -620,5 +621,24 @@ public class Controller
 		return "FAILURE";
 
     }
+    public boolean isValidGuessAndBet(String userInput)
+    {
+        try {
+            Integer.parseInt(userInput);
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+        return true;
+    }
+    public int diceGame(String userGuess)
+    {
+        Random rand = null;
+        int dice = rand.nextInt();
 
+        if(Integer.parseInt(userGuess) == dice)
+            return 1;
+        return 0;
+    }
 }
