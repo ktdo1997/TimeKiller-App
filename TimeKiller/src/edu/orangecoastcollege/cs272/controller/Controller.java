@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-
 import edu.orangecoastcollege.cs272.model.DBModel;
 import edu.orangecoastcollege.cs272.model.Quiz;
 import edu.orangecoastcollege.cs272.model.User;
@@ -81,6 +80,19 @@ public class Controller
     private ObservableList<Quiz> mAllQuizList;
 
 	private Controller() {
+	}
+	public boolean deleteUser(User u) {
+		if (u == null)
+			return false;
+
+		theOne.mAllUsersList.remove(u);
+
+		try {
+			theOne.mUserDB.deleteRecord(String.valueOf(u.getID()));
+		} catch (SQLException e) {
+			return false;
+		}
+		return true;
 	}
 
     public static Controller getInstance()

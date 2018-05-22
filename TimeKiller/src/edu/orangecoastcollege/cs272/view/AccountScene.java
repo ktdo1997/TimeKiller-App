@@ -43,4 +43,8 @@ public class AccountScene {
     public void loadMainMenu(ActionEvent event) {
         ViewNavigator.loadScene("Main Menu", ViewNavigator.MAIN_MENU);
 	}
+    @FXML
+    public void loadSignInScene(ActionEvent event) {
+        ViewNavigator.loadScene("Time Killer", ViewNavigator.SIGN_IN_SCENE);
+	}
 }
