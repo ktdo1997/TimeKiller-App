@@ -89,6 +89,7 @@ public class DBModel
         for (int i = 0; i < values.length; i++)
             insertSQL.append(convertToSQLText(fields[i], values[i])).append((i < values.length - 1) ? "," : ")");
 
+        System.out.println(insertSQL);
         stmt.executeUpdate(insertSQL.toString());
         return stmt.getGeneratedKeys().getInt(1);
         }

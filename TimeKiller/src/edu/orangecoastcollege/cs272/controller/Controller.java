@@ -67,7 +67,7 @@ public class Controller
     private static final String GUESSING_GAME_QUIZ_TABLE_NAME ="GuessingGame_quiz";
     private static final String[] GUESSING_GAME_QUIZ_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] GUESSING_GAME_QUIZ_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String GUESSING_GAME_QUIZ_DATA_FILE = "GuessingGame.csv";
+    private static final String GUESSING_GAME_QUIZ_DATA_FILE = "Quiz\\GuessingGame.csv";
 
     private User mCurrentUser;
     private DBModel mUserDB;
@@ -228,7 +228,9 @@ public class Controller
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 				theOne.mGuessingGameQuizDB = new DBModel(DB_NAME,GUESSING_GAME_QUIZ_TABLE_NAME, GUESSING_GAME_QUIZ_FIELD_NAMES, GUESSING_GAME_QUIZ_FIELD_TYPES);
+				System.out.println("About to call initializeGuessingGameQuizDBFromFile");
 				theOne.initializeGuessingGameQuizDBFromFile();
+				System.out.println("Terminated call to initializeGuessingGameQuizDBFromFile");
 				resultsList = theOne.mGuessingGameQuizDB.getAllRecords();
 				for (ArrayList<String> values : resultsList)
 				{
@@ -268,9 +270,11 @@ public class Controller
 	private int initializeGuessingGameQuizDBFromFile() throws SQLException{
 		int recordsCreated = 0;
 
-		if (theOne.mUserDB.getRecordCount() > 0)
+		if (theOne.mGameQuizDB.getRecordCount() > 0)
+		{
+			System.out.println("Game quiz already populated (or at least it thinks)");
 			return 0;
-
+		}
 		try {
 			Scanner fileScanner = new Scanner(new File(GUESSING_GAME_QUIZ_DATA_FILE));
 
@@ -279,20 +283,22 @@ public class Controller
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[GUESSING_GAME_QUIZ_FIELD_NAMES.length - 1];
-				values[0] = data[1].replaceAll("'", "''");
-				values[1] = data[2];
-				values[2] = data[3];
-				values[3] = data[4];
-				values[4] = data[5];
-				values[5] = data[6];
+				values[0] = data[0].replaceAll("'", "''");
+				values[1] = data[1];
+				values[2] = data[2];
+				values[3] = data[3];
+				values[4] = data[4];
+				values[5] = data[5];
 				theOne.mRandomQuizDB.createRecord(Arrays.copyOfRange(GUESSING_GAME_QUIZ_FIELD_NAMES, 1, GUESSING_GAME_QUIZ_FIELD_NAMES.length), values);
 				recordsCreated++;
 			}
 
 			fileScanner.close();
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 			return 0;
 		}
+		System.out.println(recordsCreated + " questions were created.");
 		return recordsCreated;
 	}
 
@@ -717,7 +723,7 @@ public class Controller
     public int getDice()
     {
         Random rand = new Random();
-        int dice = rand.nextInt(7) + 1;
+        int dice = rand.nextInt(6) + 1;
         return dice;
     }
     public int diceGame(String userGuess)
