@@ -3,12 +3,14 @@ package edu.orangecoastcollege.cs272.view;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
-
+import edu.orangecoastcollege.cs272.controller.Controller;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
 
 public class AccountScene {
+    private static Controller controller = Controller.getInstance();
+
 	@FXML
 	private Button userNameBT;
 	@FXML
@@ -44,7 +46,9 @@ public class AccountScene {
         ViewNavigator.loadScene("Main Menu", ViewNavigator.MAIN_MENU);
 	}
     @FXML
-    public void loadSignInScene(ActionEvent event) {
-        ViewNavigator.loadScene("Time Killer", ViewNavigator.SIGN_IN_SCENE);
+    public void deleteAccount(ActionEvent event) {
+        controller.deleteUser(controller.getCurrentUser());
+        ViewNavigator.loadScene("Sign In", ViewNavigator.SIGN_IN_SCENE);
+
 	}
 }

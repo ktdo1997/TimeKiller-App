@@ -58,6 +58,7 @@ public class GuessingGameScene implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
-        controller.getQuestion();
+        GGQuestionLabel.setText(controller.getQuestion());
+
     }
 }

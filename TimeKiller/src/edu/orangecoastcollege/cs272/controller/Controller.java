@@ -750,12 +750,13 @@ public class Controller
 
 	public String getQuestion()
 	{
-	    ///
 	    String question = "", choiceA = "",choiceB= "",choiceC= "",choiceD= "",correct= "";
 	    String[] list = {question,choiceA,choiceB,choiceC,choiceD,correct};
 	    System.out.println(theOne.mGuessingGameQuizList);
-	    for(Quiz q : theOne.mGuessingGameQuizList)
-	        question = q.getQuestion();
+        for (Quiz q : theOne.mGuessingGameQuizList)
+        {
+            question = q.getQuestion();
+        }
         return question;
 
 	}
