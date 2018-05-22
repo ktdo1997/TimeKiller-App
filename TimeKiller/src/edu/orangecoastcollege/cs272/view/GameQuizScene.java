@@ -8,7 +8,7 @@ import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
 
-public class MathScene {
+public class GameQuizScene {
 	@FXML
 	private Button easyBT;
 	@FXML
@@ -18,28 +18,27 @@ public class MathScene {
 	@FXML
 	private Button backBT;
 	@FXML
-	private Label mathLevelLabel;
+	private Label gameLevelLabel;
 
 	// Event Listener on Button[#easyBT].onAction
 	@FXML
-	public void loadMathEasy(ActionEvent event) {
-		ViewNavigator.loadScene("Easy", ViewNavigator.MATH_EASY_SCENE);
+	public void loadGameEasy(ActionEvent event) {
+		ViewNavigator.loadScene("Easy Level ",ViewNavigator.GAME_QUIZ_EASY_SCENE);
 	}
 	// Event Listener on Button[#hardBT].onAction
 	@FXML
-	public void loadMathHard(ActionEvent event) {
-		ViewNavigator.loadScene("Hard", ViewNavigator.MATH_HARD_SCENE);
+	public void loadGameHard(ActionEvent event) {
+		ViewNavigator.loadScene("Hard Level",ViewNavigator.GAME_QUIZ_HARD_SCENE);
 	}
 	// Event Listener on Button[#extremelyBT].onAction
 	@FXML
-	public void loadMathExtreme(ActionEvent event) {
-		ViewNavigator.loadScene("Extreme", ViewNavigator.MATH_EXTREME_SCENE);
+	public void loadGameExtreme(ActionEvent event) {
+		ViewNavigator.loadScene("Extremely Level",ViewNavigator.GAME_QUIZ_EXTREME_SCENE);
 	}
 	// Event Listener on Button[#backBT].onAction
 	@FXML
 	public void loadQuizScene(ActionEvent event) {
+		ViewNavigator.loadScene("QUIZ", ViewNavigator.QUIZ_SCENE);
 		
-			ViewNavigator.loadScene("Quiz", ViewNavigator.QUIZ_SCENE);
-		}
+	}
 }
-    

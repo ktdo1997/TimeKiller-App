@@ -16,6 +16,8 @@ import javafx.collections.ObservableList;
 
 public class Controller
 {
+	
+	
     private static Controller theOne;
 
     private static final String DB_NAME = "User_Info.db";
@@ -646,4 +648,6 @@ public class Controller
 	{
 		return mCurrentUser;
 	}
+	
+	
 }
