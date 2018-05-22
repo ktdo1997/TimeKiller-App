@@ -34,26 +34,29 @@ public class DiceGameScene {
 	// Event Listener on Button.onAction
 	@FXML
 	public void playDiceGame(ActionEvent event) {
-	    int userGuess = Integer.parseInt(yourGuessTF.getText());
-	    int userBet = Integer.parseInt(yourBetTF.getText());
+	    String userGuess = yourGuessTF.getText();
+	    String userBet = yourBetTF.getText();
 	    int userPoint = Integer.parseInt(yourPointLabel.getText());
 	    int enemyPoint = Integer.parseInt(botPointsLabel.getText());
-	    diceRollLabel.setText(String.valueOf(controller.getDice()));
-	    if(controller.isValidGuessAndBet(String.valueOf(userGuess)) == false)
+	    if(controller.isValidGuessAndBet(yourGuessTF.getText()) == false)
             guessErrorLabel.setVisible(true);
-        if(controller.isValidGuessAndBet(String.valueOf(userBet)) == false)
+        if(controller.isValidGuessAndBet(yourBetTF.getText()) == false)
             betErrorLabel.setVisible(true);
-        if(controller.diceGame(String.valueOf(userGuess)) == 1)
+        diceRollLabel.setText(String.valueOf(controller.getDice()));
+        if(controller.diceGame(userGuess) == 1)
         {
-            userPoint += userBet;
-            enemyPoint -= userBet;
+            userPoint += Integer.parseInt(userBet);
+            enemyPoint -= Integer.parseInt(userBet);
         }
         else
         {
-            userPoint -= userBet;
-            enemyPoint += userBet;
+            userPoint -= Integer.parseInt(userBet);
+            enemyPoint += Integer.parseInt(userBet);
         }
         yourPointLabel.setText(String.valueOf(userPoint));
-        botPointsLabel.setText(String.valueOf(enemyPoint));        }
+        botPointsLabel.setText(String.valueOf(enemyPoint));
+
+        controller.printList();
+        }
 
 }

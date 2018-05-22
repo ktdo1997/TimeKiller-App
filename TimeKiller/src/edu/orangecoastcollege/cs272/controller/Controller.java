@@ -733,5 +733,17 @@ public class Controller
 		return mCurrentUser;
 	}
 
-
+	public void printList()
+	{
+	    System.out.println("quiz list");
+	    for(Quiz q: theOne.mAllQuizList)
+	    {
+	        System.out.println(q);
+	    }
+	    System.out.println("user list");
+	    for(User u : theOne.mAllUsersList)
+	    {
+	        System.out.println(u);
+	    }
+	}
 }
