@@ -16,8 +16,8 @@ import javafx.collections.ObservableList;
 
 public class Controller
 {
-	
-	
+
+
     private static Controller theOne;
 
     private static final String DB_NAME = "User_Info.db";
@@ -243,7 +243,7 @@ public class Controller
 				}
 				theOne.mUserDB= new DBModel(DB_NAME, USER_TABLE_NAME, USER_FIELD_NAMES, USER_FIELD_TYPES);
             }
-            
+
             catch (SQLException e)
             {
                 e.printStackTrace();
@@ -251,8 +251,8 @@ public class Controller
         }
         return theOne;
     }
-    
-  
+
+
 
     public ObservableList<User> getAllUsers()
     {
@@ -264,7 +264,7 @@ public class Controller
         return theOne.mAllQuizList;
     }
     // Guessing Game Quiz DB From File
-    
+
 	private int initializeGuessingGameQuizDBFromFile() throws SQLException{
 		int recordsCreated = 0;
 
@@ -713,10 +713,16 @@ public class Controller
         }
         return true;
     }
+
+    public int getDice()
+    {
+        Random rand = new Random();
+        int dice = rand.nextInt(7) + 1;
+        return dice;
+    }
     public int diceGame(String userGuess)
     {
-        Random rand = null;
-        int dice = rand.nextInt();
+        int dice = getDice();
 
         if(Integer.parseInt(userGuess) == dice)
             return 1;
@@ -726,6 +732,6 @@ public class Controller
 	{
 		return mCurrentUser;
 	}
-	
-	
+
+
 }

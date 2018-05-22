@@ -47,7 +47,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="yourPointLabel">
+            <Label fx:id="yourPointLabel" prefHeight="21.0" prefWidth="42.0" text="100">
                <font>
                   <Font size="15.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="botPointsLabel">
+            <Label fx:id="botPointsLabel" prefHeight="21.0" prefWidth="34.0" text="100">
                <font>
                   <Font size="15.0" />
                </font>
