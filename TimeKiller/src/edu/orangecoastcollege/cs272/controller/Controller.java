@@ -21,6 +21,7 @@ public class Controller
     private static Controller theOne;
 
     private static final String DB_NAME = "User_Info.db";
+    private static final String DB_GUESSINGGAME_NAME = "GuessingDB";
 
     private static final String USER_TABLE_NAME = "user";
     private static final String[] USER_FIELD_NAMES = { "_id", "name", "email", "password" };
@@ -29,39 +30,39 @@ public class Controller
     private static final String MATH_QUIZ_EASY_TABLE_NAME ="math_easy_quiz";
     private static final String[] MATH_QUIZ_EASY_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] MATH_QUIZ_EASY_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String MATH_QUIZ_EASY_DATA_FILE = "MathEasy.csv";
+    private static final String MATH_QUIZ_EASY_DATA_FILE = "Quiz\\MathEasy.csv";
 
     private static final String MATH_QUIZ_NORMAL_TABLE_NAME ="math_normal_quiz";
     private static final String[] MATH_QUIZ_NORMAL_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] MATH_QUIZ_NORMAL_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String MATH_QUIZ_NORMAL_DATA_FILE = "MathNormal.csv";
+    private static final String MATH_QUIZ_NORMAL_DATA_FILE = "Quiz\\MathNormal.csv";
 
     private static final String MATH_QUIZ_HARD_TABLE_NAME ="math_hard_quiz";
     private static final String[] MATH_QUIZ_HARD_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] MATH_QUIZ_HARD_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String MATH_QUIZ_HARD_DATA_FILE = "MathHard.csv";
+    private static final String MATH_QUIZ_HARD_DATA_FILE = "Quiz\\MathHard.csv";
     //end of MATH QUIZ DB
     //GAME QUIZ DB
     private static final String GAME_QUIZ_EASY_TABLE_NAME ="game_quiz_easy";
     private static final String[] GAME_QUIZ_EASY_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] GAME_QUIZ_EASY_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String GAME_QUIZ_EASY_DATA_FILE = "GameQuizEasy.csv";
+    private static final String GAME_QUIZ_EASY_DATA_FILE = "Quiz\\GameQuizEasy.csv";
 
     private static final String GAME_QUIZ_NORMAL_TABLE_NAME ="game_quiz_normal";
     private static final String[] GAME_QUIZ_NORMAL_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] GAME_QUIZ_NORMAL_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String GAME_QUIZ_NORMAL_DATA_FILE = "GameQuizNormal.csv";
+    private static final String GAME_QUIZ_NORMAL_DATA_FILE = "Quiz\\GameQuizNormal.csv";
 
     private static final String GAME_QUIZ_HARD_TABLE_NAME ="game_quiz_hard";
     private static final String[] GAME_QUIZ_HARD_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] GAME_QUIZ_HARD_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String GAME_QUIZ_HARD_DATA_FILE = "GameQuizHard.csv";
+    private static final String GAME_QUIZ_HARD_DATA_FILE = "Quiz\\GameQuizHard.csv";
     //end of GAME QUIZ DB
     //RANDOM QUIZ DB
     private static final String RANDOM_QUIZ_TABLE_NAME ="random_quiz";
     private static final String[] RANDOM_QUIZ_FIELD_NAMES = { "_id", "question", "choice_a", "choice_b", "choice_c", "choice_d", "answer"};
     private static final String[] RANDOM_QUIZ_FIELD_TYPES = { "INTEGER PRIMARY KEY", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"};
-    private static final String RANDOM_QUIZ_DATA_FILE = "Random.csv";
+    private static final String RANDOM_QUIZ_DATA_FILE = "Quiz\\Random.csv";
     //end of    RANDOM QUIZ DB
     // Guessing Game DB
     private static final String GUESSING_GAME_QUIZ_TABLE_NAME ="GuessingGame_quiz";
@@ -78,6 +79,7 @@ public class Controller
 
     private ObservableList<User> mAllUsersList;
     private ObservableList<Quiz> mAllQuizList;
+    private ObservableList<Quiz> mGuessingGameQuizList;
 
 	private Controller() {
 	}
@@ -102,6 +104,7 @@ public class Controller
             theOne = new Controller();
             theOne.mAllUsersList = FXCollections.observableArrayList();
             theOne.mAllQuizList = FXCollections.observableArrayList();
+            theOne.mGuessingGameQuizList = FXCollections.observableArrayList();
 
             try
             {
@@ -129,7 +132,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				// Math quiz normal
@@ -145,7 +148,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				// Math quiz hard
@@ -161,7 +164,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				// Game quiz easy
@@ -177,7 +180,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				// Game quiz normal
@@ -193,7 +196,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				// Game quiz hard
@@ -209,7 +212,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				// Random quiz
@@ -225,23 +228,23 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
-				theOne.mGuessingGameQuizDB = new DBModel(DB_NAME,GUESSING_GAME_QUIZ_TABLE_NAME, GUESSING_GAME_QUIZ_FIELD_NAMES, GUESSING_GAME_QUIZ_FIELD_TYPES);
-				System.out.println("About to call initializeGuessingGameQuizDBFromFile");
+
+				//Guessing game
+				theOne.mGuessingGameQuizDB = new DBModel(DB_GUESSINGGAME_NAME,GUESSING_GAME_QUIZ_TABLE_NAME, GUESSING_GAME_QUIZ_FIELD_NAMES, GUESSING_GAME_QUIZ_FIELD_TYPES);
 				theOne.initializeGuessingGameQuizDBFromFile();
-				System.out.println("Terminated call to initializeGuessingGameQuizDBFromFile");
 				resultsList = theOne.mGuessingGameQuizDB.getAllRecords();
 				for (ArrayList<String> values : resultsList)
 				{
-					int id = Integer.parseInt(values.get(0));
+
 					String question = values.get(1);
 					String choiceA = values.get(2);
 					String choiceB = values.get(3);
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mGuessingGameQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 				theOne.mUserDB= new DBModel(DB_NAME, USER_TABLE_NAME, USER_FIELD_NAMES, USER_FIELD_TYPES);
             }
@@ -265,14 +268,18 @@ public class Controller
     {
         return theOne.mAllQuizList;
     }
+
+    public ObservableList<Quiz> getGuessingGameQuizList()
+    {
+        return theOne.mGuessingGameQuizList;
+    }
     // Guessing Game Quiz DB From File
 
 	private int initializeGuessingGameQuizDBFromFile() throws SQLException{
 		int recordsCreated = 0;
 
-		if (theOne.mGameQuizDB.getRecordCount() > 0)
+		if (theOne.mGuessingGameQuizDB.getRecordCount() > 0)
 		{
-			System.out.println("Game quiz already populated (or at least it thinks)");
 			return 0;
 		}
 		try {
@@ -289,7 +296,7 @@ public class Controller
 				values[3] = data[3];
 				values[4] = data[4];
 				values[5] = data[5];
-				theOne.mRandomQuizDB.createRecord(Arrays.copyOfRange(GUESSING_GAME_QUIZ_FIELD_NAMES, 1, GUESSING_GAME_QUIZ_FIELD_NAMES.length), values);
+				theOne.mGuessingGameQuizDB.createRecord(Arrays.copyOfRange(GUESSING_GAME_QUIZ_FIELD_NAMES, 1, GUESSING_GAME_QUIZ_FIELD_NAMES.length), values);
 				recordsCreated++;
 			}
 
@@ -298,7 +305,7 @@ public class Controller
 			e.printStackTrace();
 			return 0;
 		}
-		System.out.println(recordsCreated + " questions were created.");
+		//System.out.println(recordsCreated + " questions were created.");
 		return recordsCreated;
 	}
 
@@ -732,24 +739,23 @@ public class Controller
 
         if(Integer.parseInt(userGuess) == dice)
             return 1;
-        return 0;
+        else
+            return 0;
+
     }
 	public User getCurrentUser()
 	{
 		return mCurrentUser;
 	}
 
-	public void printList()
+	public String getQuestion()
 	{
-	    System.out.println("quiz list");
-	    for(Quiz q: theOne.mAllQuizList)
-	    {
-	        System.out.println(q);
-	    }
-	    System.out.println("user list");
-	    for(User u : theOne.mAllUsersList)
-	    {
-	        System.out.println(u);
-	    }
+	    String question = "", choiceA = "",choiceB= "",choiceC= "",choiceD= "",correct= "";
+	    String[] list = {question,choiceA,choiceB,choiceC,choiceD,correct};
+	    System.out.println(theOne.mGuessingGameQuizList);
+	    for(Quiz q : theOne.mGuessingGameQuizList)
+	        question = q.getQuestion();
+        return question;
+
 	}
 }

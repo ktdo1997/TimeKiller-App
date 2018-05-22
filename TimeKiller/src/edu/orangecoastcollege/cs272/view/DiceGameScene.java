@@ -56,7 +56,11 @@ public class DiceGameScene {
         yourPointLabel.setText(String.valueOf(userPoint));
         botPointsLabel.setText(String.valueOf(enemyPoint));
 
-        controller.printList();
+        if(userPoint <= 0)
+            ViewNavigator.loadScene("You Lose", ViewNavigator.LOSE_GAME_SCENE);
+        if(enemyPoint <= 0)
+            ViewNavigator.loadScene("You Won", ViewNavigator.WIN_GAME_SCENE);
+
         }
 
 }

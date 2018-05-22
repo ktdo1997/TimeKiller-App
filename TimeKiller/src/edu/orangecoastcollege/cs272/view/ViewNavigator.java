@@ -32,7 +32,9 @@ public class ViewNavigator
     public static final String GAME_QUIZ_HARD_SCENE = "GameQuizHardScene.fxml";
     public static final String GAME_QUIZ_EASY_SCENE = "GameQuizEasyScene.fxml";
     public static final String RANDOM_QUIZ_SCENE = "RandomQuizScene.fxml";
-    
+    public static final String LOSE_GAME_SCENE = "LoseGameScene.fxml";
+    public static final String WIN_GAME_SCENE = "WinGameScene.fxml";
+
     //game scene
     public static final String DICE_GAME_SCENE = "DiceGameScene.fxml";
 

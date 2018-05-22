@@ -2,17 +2,16 @@ package edu.orangecoastcollege.cs272.model;
 
 public class Quiz
 {
-    private int mID;
     private String mQuestion;
     private String mChoiceA;
     private String mChoiceB;
     private String mChoiceC;
     private String mChoiceD;
     private String mCorrect;
-    public Quiz(int iD, String question, String choiceA, String choiceB, String choiceC, String choiceD, String correct)
+    public Quiz(String question, String choiceA, String choiceB, String choiceC, String choiceD, String correct)
     {
         super();
-        mID = iD;
+
         mQuestion = question;
         mChoiceA = choiceA;
         mChoiceB = choiceB;
@@ -28,14 +27,7 @@ public class Quiz
     {
     	return mQuestion;
     }
-    public int getID()
-    {
-        return mID;
-    }
-    public void setID(int iD)
-    {
-        mID = iD;
-    }
+
     public String getChoiceA()
     {
         return mChoiceA;
@@ -76,6 +68,8 @@ public class Quiz
     {
         mCorrect = correct;
     }
+
+
     @Override
     public int hashCode()
     {
@@ -86,7 +80,7 @@ public class Quiz
         result = prime * result + ((mChoiceC == null) ? 0 : mChoiceC.hashCode());
         result = prime * result + ((mChoiceD == null) ? 0 : mChoiceD.hashCode());
         result = prime * result + ((mCorrect == null) ? 0 : mCorrect.hashCode());
-        result = prime * result + mID;
+        result = prime * result + ((mQuestion == null) ? 0 : mQuestion.hashCode());
         return result;
     }
     @Override
@@ -121,13 +115,17 @@ public class Quiz
             if (other.mCorrect != null) return false;
         }
         else if (!mCorrect.equals(other.mCorrect)) return false;
-        if (mID != other.mID) return false;
+        if (mQuestion == null)
+        {
+            if (other.mQuestion != null) return false;
+        }
+        else if (!mQuestion.equals(other.mQuestion)) return false;
         return true;
     }
     @Override
     public String toString()
     {
-        return "Quiz [ID=" + mID + ", ChoiceA=" + mChoiceA + ", ChoiceB=" + mChoiceB + ", ChoiceC=" + mChoiceC
+        return "Quiz [Question= "+ mQuestion +",  ChoiceA=" + mChoiceA + ", ChoiceB=" + mChoiceB + ", ChoiceC=" + mChoiceC
                 + ", ChoiceD=" + mChoiceD + ", Correct=" + mCorrect + "]";
         }
 
