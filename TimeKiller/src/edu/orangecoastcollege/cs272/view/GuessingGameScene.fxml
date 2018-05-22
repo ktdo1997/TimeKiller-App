@@ -38,14 +38,9 @@
       </Label>
       <Button mnemonicParsing="false" onAction="#loadGameScene" prefHeight="25.0" prefWidth="112.0" text="Exit" GridPane.columnIndex="7" GridPane.rowIndex="5" />
       <Button mnemonicParsing="false" onAction="#loadNextQuestion" prefHeight="25.0" prefWidth="69.0" text="Skip" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" onAction="#checkAnswerA" prefHeight="30.0" prefWidth="50.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#checkAnswerB" prefHeight="30.0" prefWidth="50.0" text="B" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#checkAnswerC" prefHeight="30.0" prefWidth="50.0" text="C" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" onAction="#checkAnswerD" prefHeight="30.0" prefWidth="50.0" text="D" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Label fx:id="choiceALabel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <Label fx:id="choiceBLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <Label fx:id="choiceCLabel" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <Label fx:id="choiceDLabel" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="OK" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <Button fx:id="choiceABT" mnemonicParsing="false" onAction="#checkAnswerA" prefHeight="30.0" prefWidth="50.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button fx:id="choiceBBT" mnemonicParsing="false" onAction="#checkAnswerB" prefHeight="30.0" prefWidth="50.0" text="B" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button fx:id="choiceCBT" mnemonicParsing="false" onAction="#checkAnswerC" prefHeight="30.0" prefWidth="50.0" text="C" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button fx:id="choiceDBT" mnemonicParsing="false" onAction="#checkAnswerD" prefHeight="30.0" prefWidth="50.0" text="D" GridPane.columnIndex="2" GridPane.rowIndex="4" />
    </children>
 </GridPane>

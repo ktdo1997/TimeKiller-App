@@ -748,16 +748,21 @@ public class Controller
 		return mCurrentUser;
 	}
 
-	public String getQuestion()
+	public String[] getQuestion()
 	{
-	    String question = "", choiceA = "",choiceB= "",choiceC= "",choiceD= "",correct= "";
-	    String[] list = {question,choiceA,choiceB,choiceC,choiceD,correct};
+	    //String question = "", choiceA = "",choiceB= "",choiceC= "",choiceD= "",correct= "";
+	    String[] list = {"question","choiceA","choiceB","choiceC","choiceD","correct"};
 	    System.out.println(theOne.mGuessingGameQuizList);
         for (Quiz q : theOne.mGuessingGameQuizList)
         {
-            question = q.getQuestion();
+            list[0] = q.getQuestion();
+            list[1] = q.getChoiceA();
+            list[2] = q.getChoiceB();
+            list[3] = q.getChoiceC();
+            list[4] = q.getChoiceD();
+            list[5] = q.getCorrect();
         }
-        return question;
+        return list;
 
 	}
 }
