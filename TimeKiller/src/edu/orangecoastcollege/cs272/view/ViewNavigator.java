@@ -27,8 +27,8 @@ public class ViewNavigator
     public static final String GAME_QUIZ_SCENE = "GameQuizScene.fxml";
     public static final String MATH_HARD_SCENE = "MathHardScene.fxml";
     public static final String MATH_EASY_SCENE = "MathEasyScene.fxml";
-    public static final String MATH_EXTREME_SCENE = "MathExtremeScene.fxml";
-    public static final String GAME_QUIZ_EXTREME_SCENE = "GameQuizExtremeScene.fxml";
+    public static final String MATH_NORMAL_SCENE = "MathNormalScene.fxml";
+    public static final String GAME_QUIZ_NORMAL_SCENE = "GameQuizNormalScene.fxml";
     public static final String GAME_QUIZ_HARD_SCENE = "GameQuizHardScene.fxml";
     public static final String GAME_QUIZ_EASY_SCENE = "GameQuizEasyScene.fxml";
     public static final String RANDOM_QUIZ_SCENE = "RandomQuizScene.fxml";

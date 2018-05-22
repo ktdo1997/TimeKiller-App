@@ -20,12 +20,12 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="easyBT" mnemonicParsing="false" onAction="#loadMathEasy" prefHeight="50.0" prefWidth="300.0" text="Easy" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#loadMathEasy" prefHeight="50.0" prefWidth="300.0" text="Easy" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="hardBT" mnemonicParsing="false" onAction="#loadMathHard" prefHeight="50.0" prefWidth="300.0" text="Hard" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#loadMathNormal" prefHeight="50.0" prefWidth="300.0" text="Normal" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
@@ -33,12 +33,12 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="extremelyBT" mnemonicParsing="false" onAction="#loadMathExtreme" prefHeight="50.0" prefWidth="300.0" text="Extremely" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#loadMathHard" prefHeight="50.0" prefWidth="300.0" text="Hard" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="backBT" mnemonicParsing="false" onAction="#loadQuizScene" prefHeight="25.0" prefWidth="78.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#loadQuizScene" prefHeight="25.0" prefWidth="78.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
       <Label fx:id="mathLevelLabel" prefHeight="59.0" prefWidth="247.0" text="     Math Level" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font size="32.0" />
