@@ -43,5 +43,6 @@
       <RadioButton fx:id="rbD" mnemonicParsing="false" text="RadioButton" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <RadioButton fx:id="rbC" mnemonicParsing="false" text="RadioButton" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Button mnemonicParsing="false" onAction="#loadNextMathEasy" prefHeight="25.0" prefWidth="69.0" text="Next" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      
    </children>
 </GridPane>

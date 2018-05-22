@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+
 import edu.orangecoastcollege.cs272.model.DBModel;
 import edu.orangecoastcollege.cs272.model.Quiz;
 import edu.orangecoastcollege.cs272.model.User;
@@ -215,7 +216,7 @@ public class Controller
 					theOne.mAllQuizList.add(new Quiz(id, question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 				theOne.mGuessingGameQuizDB = new DBModel(DB_NAME,GUESSING_GAME_QUIZ_TABLE_NAME, GUESSING_GAME_QUIZ_FIELD_NAMES, GUESSING_GAME_QUIZ_FIELD_TYPES);
-				theOne.initializeRandomQuizDBFromFile();
+				theOne.initializeGuessingGameQuizDBFromFile();
 				resultsList = theOne.mGuessingGameQuizDB.getAllRecords();
 				for (ArrayList<String> values : resultsList)
 				{
@@ -237,6 +238,18 @@ public class Controller
             }
         }
         return theOne;
+    }
+    
+  
+
+    public ObservableList<User> getAllUsers()
+    {
+        return theOne.mAllUsersList;
+    }
+
+    public ObservableList<Quiz> getAllQuizList()
+    {
+        return theOne.mAllQuizList;
     }
     // Guessing Game Quiz DB From File
     

@@ -35,7 +35,7 @@ public class EmailScene {
 			emailErrorLabel.setVisible(currentEmail.isEmpty());
 			if (emailErrorLabel.isVisible())
 				return false;
-			if (controller.changeUserName(currentEmail, newEmail) == "FAILURE")
+			if (controller.changeEmail(currentEmail, newEmail) == "FAILURE")
 				newEmailErrorLabel.setVisible(true);
 			else {
 				ViewNavigator.loadScene("Account", ViewNavigator.ACCOUNT_SCENE);
