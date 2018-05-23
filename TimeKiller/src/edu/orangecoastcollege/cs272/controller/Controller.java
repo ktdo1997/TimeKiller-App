@@ -21,6 +21,7 @@ public class Controller
     private static Controller theOne;
 
     private static final String DB_NAME = "User_Info.db";
+    private static final String DB_RANDOMQUIZ_NAME = "RandomDB";
     private static final String DB_GUESSINGGAME_NAME = "GuessingDB";
 
     private static final String USER_TABLE_NAME = "user";
@@ -79,6 +80,7 @@ public class Controller
 
     private ObservableList<User> mAllUsersList;
     private ObservableList<Quiz> mAllQuizList;
+    private ObservableList<Quiz> mRandomQuizList;
     private ObservableList<Quiz> mGuessingGameQuizList;
 
 	private Controller() {
@@ -105,6 +107,8 @@ public class Controller
             theOne.mAllUsersList = FXCollections.observableArrayList();
             theOne.mAllQuizList = FXCollections.observableArrayList();
             theOne.mGuessingGameQuizList = FXCollections.observableArrayList();
+            theOne.mRandomQuizList = FXCollections.observableArrayList();
+
 
             try
             {
@@ -216,7 +220,7 @@ public class Controller
 				}
 
 				// Random quiz
-				theOne.mRandomQuizDB = new DBModel(DB_NAME, RANDOM_QUIZ_TABLE_NAME, RANDOM_QUIZ_FIELD_NAMES, RANDOM_QUIZ_FIELD_TYPES);
+				theOne.mRandomQuizDB = new DBModel(DB_RANDOMQUIZ_NAME, RANDOM_QUIZ_TABLE_NAME, RANDOM_QUIZ_FIELD_NAMES, RANDOM_QUIZ_FIELD_TYPES);
 				theOne.initializeRandomQuizDBFromFile();
 				resultsList = theOne.mRandomQuizDB.getAllRecords();
 				for (ArrayList<String> values : resultsList)
@@ -228,7 +232,7 @@ public class Controller
 					String choiceC = values.get(4);
 					String choiceD = values.get(5);
 					String correct = values.get(6);
-					theOne.mAllQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
+					theOne.mRandomQuizList.add(new Quiz(question, choiceA, choiceB, choiceC, choiceD, correct));
 				}
 
 				//Guessing game
@@ -267,6 +271,10 @@ public class Controller
     public ObservableList<Quiz> getAllQuizList()
     {
         return theOne.mAllQuizList;
+    }
+    public ObservableList<Quiz> getRandomQuizList()
+    {
+        return theOne.mRandomQuizList;
     }
 
     public ObservableList<Quiz> getGuessingGameQuizList()
@@ -313,7 +321,7 @@ public class Controller
     private int initializeRandomQuizDBFromFile() throws SQLException{
 		int recordsCreated = 0;
 
-		if (theOne.mUserDB.getRecordCount() > 0)
+		if (theOne.mRandomQuizDB.getRecordCount() > 0)
 			return 0;
 
 		try {
@@ -324,12 +332,12 @@ public class Controller
 			while (fileScanner.hasNextLine()) {
 				String[] data = fileScanner.nextLine().split(",");
 				String[] values = new String[RANDOM_QUIZ_FIELD_NAMES.length - 1];
-				values[0] = data[1].replaceAll("'", "''");
-				values[1] = data[2];
-				values[2] = data[3];
-				values[3] = data[4];
-				values[4] = data[5];
-				values[5] = data[6];
+				values[0] = data[0].replaceAll("'", "''");
+                values[1] = data[1];
+                values[2] = data[2];
+                values[3] = data[3];
+                values[4] = data[4];
+                values[5] = data[5];
 				theOne.mRandomQuizDB.createRecord(Arrays.copyOfRange(RANDOM_QUIZ_FIELD_NAMES, 1, RANDOM_QUIZ_FIELD_NAMES.length), values);
 				recordsCreated++;
 			}
@@ -762,9 +770,23 @@ public class Controller
         }
         return list;
 	}
+	public String[] getRandomQuestion()
+    {
+        String[] list = {"question","choiceA","choiceB","choiceC","choiceD","correct"};
+        for (Quiz q : theOne.mRandomQuizList)
+        {
+            list[0] = q.getQuestion();
+            list[1] = q.getChoiceA();
+            list[2] = q.getChoiceB();
+            list[3] = q.getChoiceC();
+            list[4] = q.getChoiceD();
+            list[5] = q.getCorrect();
+        }
+        return list;
+    }
 	public boolean checkAnswer(String answer)
 	{
-	    String[] list = getQuestion();
+	   String[] list = getQuestion();
 	    for(Quiz q: theOne.mGuessingGameQuizList)
 	    {
 	        if(answer.equalsIgnoreCase(list[5].toString()))

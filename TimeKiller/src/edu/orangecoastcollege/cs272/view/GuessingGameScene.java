@@ -40,21 +40,24 @@ public class GuessingGameScene implements Initializable{
 		if(controller.checkAnswer(choiceABT.getText()) == false)
 		    ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);
 	}
-	// Event Listener on Button[#choiceBBT].onAction
+	 //Event Listener on Button[#choiceBBT].onAction
 	@FXML
 	public void checkAnswerB(ActionEvent event) {
-	    if(controller.checkAnswer(choiceABT.getText()) == true)
-            ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);	}
+	   if(controller.checkAnswer(choiceABT.getText()) == true)
+            ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);	
+	    }
 	// Event Listener on Button[#choiceCBT].onAction
 	@FXML
 	public void checkAnswerC(ActionEvent event) {
 	    if(controller.checkAnswer(choiceABT.getText()) == true)
-            ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);	}
-	// Event Listener on Button[#choiceDBT].onAction
+            ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);	
+	    }
+	 //Event Listener on Button[#choiceDBT].onAction
 	@FXML
 	public void checkAnswerD(ActionEvent event) {
 	    if(controller.checkAnswer(choiceABT.getText()) == true)
-            ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);	}
+            ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);	
+	    }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)
     {
