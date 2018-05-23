@@ -750,9 +750,7 @@ public class Controller
 
 	public String[] getQuestion()
 	{
-	    //String question = "", choiceA = "",choiceB= "",choiceC= "",choiceD= "",correct= "";
 	    String[] list = {"question","choiceA","choiceB","choiceC","choiceD","correct"};
-	    System.out.println(theOne.mGuessingGameQuizList);
         for (Quiz q : theOne.mGuessingGameQuizList)
         {
             list[0] = q.getQuestion();
@@ -763,6 +761,15 @@ public class Controller
             list[5] = q.getCorrect();
         }
         return list;
-
+	}
+	public boolean checkAnswer(String answer)
+	{
+	    String[] list = getQuestion();
+	    for(Quiz q: theOne.mGuessingGameQuizList)
+	    {
+	        if(answer.equalsIgnoreCase(list[5].toString()))
+	            return true;
+	    }
+	    return false;
 	}
 }
