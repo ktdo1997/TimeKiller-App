@@ -38,7 +38,7 @@ public class RandomQuizScene implements Initializable{
 	@FXML
 	public void checkAnswerA(ActionEvent event) {
 	//	if(controller.checkAnswer(choiceABT.getText()) == false)
-		//    ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);
+		///    ViewNavigator.loadScene("Congratulation", ViewNavigator.WIN_GUESSING_GAME_SCENE);
 	}
 	// Event Listener on Button[#choiceBBT].onAction
 	@FXML
